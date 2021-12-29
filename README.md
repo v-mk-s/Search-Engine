@@ -9,7 +9,8 @@ AI based search engine
 ## How to start
 Download pretrained TF-IDF Vectorizers and data from the Google Drive.
 ```python
-python src/server.py
+cd src
+python server.py
 ```
 
 ## Preview
