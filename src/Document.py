@@ -54,7 +54,7 @@ class Document:
 
         title_distance = self.calculate_tfidf_title_distance(tfidf_query)
         body_distance  = self.calculate_tfidf_body_distance(tfidf_query)
-        
+
         self.score = (TITLE_WEIGHT * title_distance + BODY_WEIGHT * body_distance) * self.date_score * self.votes_score
 
         self.score = round(self.score, 3)
