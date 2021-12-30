@@ -90,11 +90,11 @@
     {% endif %}
 
 
-    {% for CreationDate, Score, Title, Body, score in results %}
+    {% for doc in results %}
         <div class='result'>
-            <div class='score'>{{score}} </div>
-            <div class='headline'><a href='#'>{{Title|safe}}</a></div>
-            <div class='annotation'>{{ Body|safe }}</div>
+            <div class='score'>{{doc.score}} </div>
+            <div class='headline'><a href='#'>{{doc.title|safe}}</a></div>
+            <div class='annotation'>{{ doc.body|safe }}</div>
         </div>
     {% endfor %}
 </div>
