@@ -1,6 +1,6 @@
 import pickle
 
-from utils import remove_stop_words, lemmatize
+from utils import remove_stop_words, lower_remove_punctuation, lemmatize
 from Document import Document
 
 
@@ -84,8 +84,10 @@ class Database:
         for token in query_tokens:
             docs = self.title_inverted_index[token]
             pre_index.append(docs)
+
         if len(pre_index) == 0:
             return []
+
         docs = list(set.intersection(*map(set, pre_index)))
         return docs
 
@@ -100,8 +102,10 @@ class Database:
         for token in query_tokens:
             docs = self.body_inverted_index[token]
             pre_index.append(docs)
+            
         if len(pre_index) == 0:
             return []
+
         docs = list(set.intersection(*map(set, pre_index)))
         return docs
 
@@ -117,6 +121,7 @@ class Database:
         if query == '':
             return []
 
+        query = lower_remove_punctuation(query)
         query = remove_stop_words(query)
         query = lemmatize(query)
 
