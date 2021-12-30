@@ -102,7 +102,7 @@ class Database:
         for token in query_tokens:
             docs = self.body_inverted_index[token]
             pre_index.append(docs)
-            
+
         if len(pre_index) == 0:
             return []
 
@@ -125,10 +125,10 @@ class Database:
         query = remove_stop_words(query)
         query = lemmatize(query)
 
-        docs_body_idxs = self.find_in_body_inverted_index(query)
+        # docs_body_idxs = self.find_in_body_inverted_index(query)
         docs_title_idxs = self.find_in_title_inverted_index(query)
 
-        docs_idxs = set(docs_body_idxs) | set(docs_title_idxs)
+        docs_idxs = set(docs_title_idxs)  # | set(docs_body_idxs)
 
         if len(docs_idxs) == 0:
             return []
