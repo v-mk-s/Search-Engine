@@ -125,6 +125,9 @@ class Database:
         query = remove_stop_words(query)
         query = lemmatize(query)
 
+        # docs_body_idxs takes much time to compute and does not
+        # give huge impact for a model
+
         # docs_body_idxs = self.find_in_body_inverted_index(query)
         docs_title_idxs = self.find_in_title_inverted_index(query)
 
