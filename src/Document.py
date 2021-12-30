@@ -1,4 +1,3 @@
-from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 
@@ -6,31 +5,20 @@ class Document:
     """
     Document class
 
-    Parameters
-    ----------
-    id: int
-        Unique index of document
+    Used for store each document and calculate
+    its score based on tf-idf vector similarity
 
-    title : title
-        Date when question was posted
-
-    body : body
-        Number of votes for question
-
-    date_score : date_score
-        Question title
-
-    votes_score : votes_score
-        Question title
-
-    title_top_10_tfidf: matrix
-        Title preprocessed top 10 keywords TF-IDF vector used
-        for calculating distance between TF-IDF query and TF-IDF of document
-
-    body_top_30_tfidf: matrix
-        Body preprocessed top 30 keywords TF-IDF vector used
-        for calculating distance between TF-IDF query and TF-IDF of document
+    Attributes:
+        id: Unique index of document
+        title: document title
+        body: document body
+        date_score: the newer document, the higher this value, from 1 to 2
+        votes_score: the more upvoted document have the more this value, from 1 to 2
+        title_top_10_tfidf: top 10 highest tfidf title values
+        body_top_30_tfidf: top 30 highest tfidf title values
+        score: score of document, calculates after calling calculate_score
     """
+
     def __init__(self, id, title, body, date_score, votes_score, title_top_10_tfidf, body_top_30_tfidf):
         self.id = id
         self.title = title
@@ -52,23 +40,15 @@ class Document:
     def calculate_score(self, tfidf_query) -> float:
         """
         Perform a scoring based on cosine similarity of
-        tf-idf vectors between document and seach query.
+        tf-idf vectors between document and search query.
 
-        Parameters
-        ----------
-        tfidf_query : matrix
-            The search query
+        Args:
+            tfidf_query: scipy sparse matrix, acquiring from transforming query by trained TfidfVectorizer
 
-        calculate_tfidf_title_distance : TfidfVectorizer
-            TfidfVectorizer
-
-        calculate_tfidf_body_distance : TfidfVectorizer
-            TfidfVectorizer
-        Returns
-        -------
-        score : float
-             Score is between 0 and 10
+        Returns:
+            Score is between 0 and 8
         """
+
         TITLE_WEIGHT = 0.7
         BODY_WEIGHT = 0.3
 

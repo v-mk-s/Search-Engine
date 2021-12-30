@@ -12,6 +12,15 @@ lemmatizer = WordNetLemmatizer()
 
 
 def remove_stop_words(text):
+    """
+    Function used to remove stop words
+
+    Args:
+        text: string
+
+    Returns:
+        String without stop words
+    """
     text = text.lower()
     text_tokens = word_tokenize(text)
     tokens_without_sw = [w for w in text_tokens if not w in stopwords and w.isalnum()]
@@ -19,6 +28,16 @@ def remove_stop_words(text):
 
 
 def lemmatize(text):
+    """
+    Function used to lemmatize text
+
+    Args:
+        text: string
+
+    Returns:
+        Lemmatized string
+    """
+
     text = text.lower()
     text_tokens = word_tokenize(text)
     lemmatized_tokens = [lemmatizer.lemmatize(w) for w in text_tokens]
