@@ -17,5 +17,5 @@ Open ```preprocess.ipynb``` and load dataframe to train on it
 
 ## Pipeline
 <p align="center">
-  <img width="460" src="https://user-images.githubusercontent.com/55096567/147790006-5418f43e-0ca0-4d92-a659-a80e195d0f1a.png">
+  <img width="560" src="https://user-images.githubusercontent.com/55096567/147790087-103f0114-996b-4f37-8feb-5afc83ef634b.jpg">
 </p>
