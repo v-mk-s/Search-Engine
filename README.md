@@ -1,5 +1,5 @@
 ## Search Engine
-AI based search engine that was trained on 10000 samples, feel free to train on up to 1.2M sample from kaggle dataset, link below
+AI based search engine that was trained on 25000 samples, feel free to train on up to 1.2M sample from kaggle dataset, link below
 
 [StackSample: 10% of Stack Overflow Q&A](https://www.kaggle.com/stackoverflow/stacksample?select=Questions.csv)
 
